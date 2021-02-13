@@ -10,10 +10,21 @@ function GrandChild(props) {
 }
 
 export default function Parent() {
-  const [value, setValue] = useState(1);
+  const [name, setName] = useState("");
+
+  function changeText(e) {
+    setName(e.target.value);
+  }
+
   return (
     <div>
-      <Child value={value}></Child>
+      <Child value={name}></Child>
+      <input
+        type="text"
+        // value={name}
+        onChange={changeText}
+        placeholder="change name here"
+      />
     </div>
   );
 }
